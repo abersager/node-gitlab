@@ -84,6 +84,12 @@ describe 'Project', ->
         gitlab.projects.repository.listBranches projectId, (result) ->
           done()
 
+    describe '#addBranch', ->
+      it 'should add a new branch to a given project', (done) ->
+        params = { branch_name: 'branch-name', ref: 'master' }
+        gitlab.projects.repository.addBranch projectId, params, (result) ->
+          done()
+
     describe '#listCommits()', ->
       it 'should retrieve list of members of a project', (done) ->
         gitlab.projects.repository.listCommits projectId, (result) ->

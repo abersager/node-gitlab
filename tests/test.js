@@ -116,6 +116,18 @@
           });
         });
       });
+      describe('#addBranch', function() {
+        return it('should add a new branch to a given project', function(done) {
+          var params;
+          params = {
+            branch_name: 'branch-name',
+            ref: 'master'
+          };
+          return gitlab.projects.repository.addBranch(projectId, params, function(result) {
+            return done();
+          });
+        });
+      });
       describe('#listCommits()', function() {
         return it('should retrieve list of members of a project', function(done) {
           return gitlab.projects.repository.listCommits(projectId, function(result) {
